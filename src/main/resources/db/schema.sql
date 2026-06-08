@@ -1,18 +1,5 @@
 -- =============================================================
--- Campus Entry & Exit Monitoring System — Database Schema
--- PostgreSQL 14+
---
--- Run this script once to create the database and user, then
--- let DatabaseInitializer.initialize() create the tables on
--- first application start-up.
--- =============================================================
-
--- 1. Create the database (run as postgres superuser)
--- CREATE DATABASE campus_db;
--- \c campus_db
-
--- =============================================================
--- 2. students
+-- 1. students
 -- =============================================================
 CREATE TABLE IF NOT EXISTS students (
     student_id   VARCHAR(20)  PRIMARY KEY,
@@ -34,7 +21,7 @@ INSERT INTO students (student_id, full_name, course, year_level, contact, email)
 VALUES ('2024-0001', 'Johnny Bravo', 'BSIT', '4th', '0912345678', 'jbravo@gmail.com');
 
 -- =============================================================
--- 3. faculty
+-- 2. faculty
 -- =============================================================
 CREATE TABLE IF NOT EXISTS faculty (
     id         SERIAL       PRIMARY KEY,
@@ -50,7 +37,7 @@ VALUES ('faculty', 'admin123', 'System Administrator')
 ON CONFLICT (username) DO NOTHING;
 
 -- =============================================================
--- 4. attendance
+-- 3. attendance
 -- =============================================================
 CREATE TABLE IF NOT EXISTS attendance (
     id          BIGSERIAL    PRIMARY KEY,
