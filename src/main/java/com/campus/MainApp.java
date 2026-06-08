@@ -38,7 +38,15 @@ public class MainApp extends Application {
         FXMLLoader loader = new FXMLLoader(
                 MainApp.class.getResource("/com/campus/" + fxml));
         Parent root = loader.load();
-        Scene scene = new Scene(root);
+        Scene scene;
+
+        // Preserve existing scene size if already shown, else use defaults
+        if (stage.getScene() != null) {
+            scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
+        } else {
+            scene = new Scene(root, 900, 600); // initial default size
+        }
+
         scene.getStylesheets().add(
                 MainApp.class.getResource("/com/campus/style.css").toExternalForm());
         stage.setScene(scene);
