@@ -30,6 +30,9 @@ COMMENT ON TABLE  students IS 'Registered students in the campus system.';
 COMMENT ON COLUMN students.student_id IS 'Primary key — e.g. 2024-0001.';
 COMMENT ON COLUMN students.contact    IS 'Digits only, 10–15 characters.';
 
+INSERT INTO students (student_id, full_name, course, year_level, contact, email)
+VALUES ('2024-0001', 'Johnny Bravo', 'BSIT', '4th', '0912345678', 'jbravo@gmail.com');
+
 -- =============================================================
 -- 3. faculty
 -- =============================================================
